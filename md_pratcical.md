@@ -183,5 +183,3 @@ ls /home && echo $?
 *Shows exit status (`0` = success, `1` = error).*
 
 ---
-
-🧠 *Tip: Always double-check syntax and file paths before submitting screenshots.*
