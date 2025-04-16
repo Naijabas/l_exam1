@@ -60,7 +60,7 @@ w
 
 ### Check Login History
 ```bash
-last
+last                        # History of logged in users
 ```
 
 ### Firewall (Basic)
@@ -126,6 +126,24 @@ chmod +t dir/                # Sticky Bit (prevent file deletion by others)
 ```bash
 ln file.txt link1            # Hard link
 ln -s file.txt link2         # Symbolic (soft) link
+```
+
+### View Shadow File
+```
+tail -5 /etc/shadow
+```
+
+
+### View User Information
+```
+id
+id root
+id -g                       # View group assigned
+id -G                       # View secondary group assigned
+```
+```
+who                          # View Current User
+who -b -r                    # the -b option shows the last time the system started (booted), and the -r option shows the time the system reached the current runlevel:
 ```
 
 > ✅ Tip: Use `man command` (e.g., `man ls`) to learn more about any command.
