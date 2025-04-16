@@ -90,8 +90,13 @@ useradd -u 1009 -g users -G sales,research -m -c 'Jane Doe' jane
 
 
 grep '/home/jane' /etc/passwd # Viewing jane details
+grep jane /etc/passwd         # Find jane in the passwd file
+grep jane /etc/shadow         # ///
+grep jane /etc/group          # Find Jane in the group file
+grep jane /etc/gshadow        # group shadow
 
 sudo deluser olduser          # Delete user
+userdel -r jane               # -r deletes user, home directory, and mail spool
 
 useradd -D                     # View Default useradd settings
 grep -Ev '^#|^$' /etc/login.defs    # Load /login/defs
@@ -102,7 +107,9 @@ grep -Ev '^#|^$' /etc/login.defs    # Load /login/defs
 sudo groupadd devs            # Create group
 sudo usermod -aG devs user1   # Add user to group
 groups user1                  # View groups
+groups                        # List all foods
 
+chgrp research sample         # Chnage the sample dir group owner to research
 
 grep root /etc/group          # View local groups
 getent group root              # View Local and Network-Based groups
@@ -120,10 +127,21 @@ find / -nogroup               # To find files not owned by any group
 groupdel clerks               # delete a group
 ```
 
+
+### Group change/Owner
+```bash
+chgrp -R development test_dir # change the group recursively
+chown user /path/to/file      # make user 'user' own the part
+chown user:group /path/to/file # Change owner of a file
+```
+
 ### Passwords
 ```bash
 passwd                        # Change own password
 sudo passwd username          # Change another user's password
+
+passwd jane                   # Change Jane's password
+
 ```
 
 ## 🔑 Ownership and Permissions
