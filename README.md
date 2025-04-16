@@ -178,6 +178,23 @@ chmod u=rx abc.txt            # this gives user owner read and executable
 # 2	Write
 # 1	Execute
 
+
+
+chmod u+s file                # Set setuid
+chmod 4775                    # Set setuid (4000 to set)
+chmod u-s file                # Remove setuid
+chmod 0775 file               # Remove setuid (0***)
+
+chmod g+s file                # Set setgid
+chmod 2775                    # Set setgid (2000 to set)
+chmod g-s file                # Remove setgid
+chmod 0775 file               # Remove setgid (0***)
+
+chmod o+t file                # Set sticky
+chmod 1775                    # Set sticky (1000 to set)
+chmod o-t file                # Remove sticky
+chmod 0775 file               # Remove sticky (0***)
+
 ```
 
 ### Default Permissions
@@ -200,6 +217,13 @@ chmod +t dir/                # Sticky Bit (prevent file deletion by others)
 ```bash
 ln file.txt link1            # Hard link
 ln -s file.txt link2         # Symbolic (soft) link
+
+ln target link_name          # 
+ls -li file.*                # To view link details
+
+ls -l /etc/grub.conf         # To view details of the link
+ln -s target link_name       # To create a Symbolic link
+
 ```
 
 ### View Shadow File
@@ -221,7 +245,7 @@ who -b -r                    # the -b option shows the last time the system star
 ```
 
 
-
+more test.txt               # To read a file
 ### 
 
 > ✅ Tip: Use `man command` (e.g., `man ls`) to learn more about any command.
