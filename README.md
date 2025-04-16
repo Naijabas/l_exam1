@@ -133,6 +133,9 @@ groupdel clerks               # delete a group
 chgrp -R development test_dir # change the group recursively
 chown user /path/to/file      # make user 'user' own the part
 chown user:group /path/to/file # Change owner of a file
+
+chown :developers /home/basit/project.txt # Sets the group of project.txt to developers, owner remains the same.
+chown .developers /home/basit/project.txt # Same thing
 ```
 
 ### Passwords
@@ -157,6 +160,24 @@ ls -l                         # View owner and permissions
 chmod u+x file.sh             # Add execute to owner
 chmod 755 file.sh             # rwxr-xr-x
 chmod 644 file.txt            # rw-r--r--
+
+
+chmod g+w abc.txt             # This gives group owner write access
+chmod ug+x,o-r abc.txt        # this gives user and group owner executable, and remove read access from others
+chmod u=rx abc.txt            # this gives user owner read and executable
+
+# u	user owner
+# g	group owner
+# o	others
+# a	all (user owner, group owner, and others)
+# r	read
+# w	write
+# x	execute
+
+# 4	Read
+# 2	Write
+# 1	Execute
+
 ```
 
 ### Default Permissions
